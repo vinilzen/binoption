@@ -1,0 +1,188 @@
+doctype html
+html
+  head
+    == Slim::Template.new("head.slim").render
+  body
+    .container
+      //== Slim::Template.new("nav.slim").render
+      .row
+        .col-xs-12
+          form.form-inline.row
+            .form-group.col-sm-8.col-xs-12
+              /.btn-group-justified
+              .btn-group
+                button.btn.btn-default.dropdown-toggle data-toggle="dropdown" type="button"
+                  | Symbol 
+                  span.caret
+                ul.dropdown-menu role="menu" 
+                  li
+                    a href="#"  Action
+                  li
+                    a href="#"  Another action
+                  li
+                    a href="#"  Something else here
+                  li.divider
+                  li
+                    a href="#"  Separated link
+              .btn-group
+                button.btn.btn-default.dropdown-toggle data-toggle="dropdown" type="button"
+                  | Type 
+                  span.caret
+                ul.dropdown-menu role="menu" 
+                  li
+                    a href="#"  Action
+                  li
+                    a href="#"  Another action
+                  li
+                    a href="#"  Something else here
+              .btn-group
+                button.btn.btn-default.dropdown-toggle data-toggle="dropdown" type="button"
+                  | Duration 
+                  span.caret
+                ul.dropdown-menu role="menu" 
+                  li
+                    a href="#"  Action
+                  li
+                    a href="#"  Another action
+                  li
+                    a href="#"  Something else here
+            .col-sm-4.col-xs-12.text-right
+              label One click trading 
+              /   input type="checkbox"
+              input.hide id="oneclick" name="oneclick" data-toggle="toggle" type="checkbox" /
+              .toggle.btn.btn-primary
+                .toggle-group
+                  label.btn.btn-primary.toggle-on for="oneclick" On
+                  label.btn.btn-default.toggle-off for="oneclick" Off
+                  span.toggle-handle.btn.btn-default
+
+      hr
+      .row
+        .col-sm-10.col-xs-12
+          .panel.panel-default
+            .panel-body#chart
+        .col-sm-2.col-xs-12
+          button.btn.btn-success.btn-block.btn-lg type="button" Up
+          button.btn.btn-info.btn-block.btn-lg type="button" Down
+          label Amount:
+          input.form-control.input-lg type="text" value="200$"
+          h2.text-success +85%
+          h4.text-success +160$
+      .row
+        .col-xs-12
+          div role="tabpanel"
+            ul.nav.nav-tabs role="tablist"
+              li.active role="presentation"
+                a href="#Open_trades" aria-controls="Open_trades" role="tab" data-toggle="tab" Open trades
+              li role="presentation"
+                a href="#History" aria-controls="History" role="tab" data-toggle="tab" History
+            .tab-content 
+              .tab-pane.active role="tabpanel" id="Open_trades"
+                .table-responsive
+                  table.table
+                    thead
+                      tr
+                        th #
+                        th Symbol
+                        th Action
+                        th Open
+                        th Close
+                        th Amount
+                        th Profit
+                        th Progress
+                    tbody
+                      tr
+                        td 1234
+                        td EURUSD
+                        td Up
+                        td 1.2345
+                        td 1.2347
+                        td 100
+                        td 185 (85%)
+                        td 44s / 1m
+                      tr
+                        td 567
+                        td GBPUSD
+                        td Down
+                        td 1.5673
+                        td 1.5669
+                        td 200
+                        td 340 (70%)
+                        td 20m / 30m
+
+              .tab-pane role="tabpanel" id="History"
+                .table-responsive
+                  table.table
+                    thead
+                      tr
+                        th #
+                        th Symbol
+                        th Action
+                        th Open
+                        th Close
+                        th Amount
+                        th Profit
+                        th Progress
+                    tbody
+                      tr.active
+                        td 48
+                        td EURUSD
+                        td Up
+                        td 1.2345
+                        td 1.2347
+                        td 100
+                        td 185 (85%)
+                        td 44s / 1m
+                      tr.active
+                        td 53
+                        td GBPUSD
+                        td Down
+                        td 1.5673
+                        td 1.5669
+                        td 200
+                        td 340 (70%)
+                        td 20m / 30m
+
+        .col-xs-12
+          h3 Last trades
+          .table-responsive
+            table.table.table-bordered
+              thead
+                tr
+                  th #
+                  th Symbol
+                  th Action
+                  th Open
+                  th Close
+                  th Amount
+                  th Profit
+                  th Progress
+              tbody
+                tr.active
+                  td 1234
+                  td EURUSD
+                  td Up
+                  td 1.2345
+                  td 1.2347
+                  td 100
+                  td 185 (85%)
+                  td 44s / 1m
+                tr.active
+                  td 567
+                  td GBPUSD
+                  td Down
+                  td 1.5673
+                  td 1.5669
+                  td 200
+                  td 340 (70%)
+                  td 20m / 30m
+          p Balance: 100300 USD / Open trades: 2 (300 USD)
+      footer.footer
+        p &copy; Company 2014
+
+    script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"
+    script src="/js/bootstrap.min.js"
+
+    script src="http://code.highcharts.com/stock/highstock.js"
+    script src="http://code.highcharts.com/stock/modules/exporting.js"
+    script src="/js/main.js"
