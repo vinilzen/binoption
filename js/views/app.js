@@ -3,9 +3,10 @@ define([
 	'jquery',
 	'underscore',
 	'backbone',
+	'config',
 	'collections/trades',
 	'text!tpl/app.html',
-], function ($, _, Backbone, Trades, AppTemplate) {
+], function ($, _, Backbone, config, Trades, AppTemplate) {
 	'use strict';
 
 	// Our overall **AppView** is the top-level piece of UI.
@@ -14,6 +15,8 @@ define([
 		// Instead of generating a new element, bind to the existing skeleton of
 		// the App already present in the HTML.
 		el: '#tradeapp',
+
+		default_lang: 'eng', // 'eng'| 'rus'
 
 		template: _.template(AppTemplate),
 
@@ -25,7 +28,7 @@ define([
 		},
 
 		render: function () {
-			this.$el.html(this.template());
+			this.$el.html(this.template( config.t[this.default_lang] ));
 			this.afterRender();
 		},
 
